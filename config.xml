@@ -9,6 +9,12 @@
 
   <name>Digiz</name>
 
+<gap:plugin name="org.apache.cordova.camera" />
+<gap:plugin name="org.apache.cordova.media-capture" />
+<gap:plugin name="org.apache.cordova.file" />
+<gap:plugin name="org.apache.cordova.media" />
+<gap:plugin name="org.apache.cordova.device" />
+
   <description>
       An example for phonegap build docs.
   </description>
@@ -18,3 +24,4 @@
   </author>
 
 </widget>
+
