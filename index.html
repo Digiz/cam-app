@@ -8,17 +8,51 @@ function main() {
 alert("in validateMyForm")
 }
 
+$(document).ready(function () {
+    alert("on page load")
+
+function hasGetUserMedia() {
+    
+    console.log("navigator.mediaDevices " + navigator.mediaDevices);
+    console.log("navigator.mediaDevices.getUserMedia " + navigator.mediaDevices.getUserMedia);
+    console.log("navigator.mediaDevices &&  navigator.mediaDevices.getUserMedia " + navigator.mediaDevices &&
+    navigator.mediaDevices.getUserMedia);
+
+  return !!(navigator.mediaDevices &&
+    navigator.mediaDevices.getUserMedia);
+}
+
+if (hasGetUserMedia()) {
+  // Good to go!
+
+} else {
+  alert('getUserMedia() is not supported by your browser');
+}
+}
 </script>
 </head>
 <body>
+<br>
+<br>
+<br>
 
     <form onsubmit="event.preventDefault(); main();">
-    
+    <div>
+        <!-- If a user would like to add an existing photo -->
         <input type="file" accept="image/*" capture="camera" />
+    </div>
+<div>
+    <input type="file" accept="image/*;capture=camera">
+</div>
+
 
         <button type="submit">submit</button> 
     </form>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
 
 <h1>Hello</h1>
