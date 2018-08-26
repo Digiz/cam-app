@@ -7,15 +7,16 @@
 <script>
 function main() {
 alert("in validateMyForm")
-const constraints = {
-  video: true
-};
+// const constraints = {
+//   video: true
+// };
 
-const video = document.querySelector('video');
+// const video = document.querySelector('video');
 
-navigator.mediaDevices.getUserMedia(constraints).
-  then((stream) => {video.srcObject = stream});
+// navigator.mediaDevices.getUserMedia(constraints).
+//   then((stream) => {video.srcObject = stream});
 }
+
 
 
 
@@ -60,8 +61,14 @@ you want to access.
 For example, if you want to access the webcam, the parameter should be {video: true}. 
 To use both the microphone and camera, pass {video: true, audio: true}:
 -->
-<video autoplay></video>
-
+<!-- <video autoplay></video> -->
+<hr>
+<input type="file" accept="image/*" capture>
+<hr>
+<input type="file" accept="image/*" capture="user">
+<hr>
+<input type="file" accept="image/*" capture="environment">
+<hr>
 
 
 
