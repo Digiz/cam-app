@@ -7,8 +7,17 @@
 <script>
 function main() {
 alert("in validateMyForm")
+const constraints = {
+  video: true
+};
 
+const video = document.querySelector('video');
+
+navigator.mediaDevices.getUserMedia(constraints).
+  then((stream) => {video.srcObject = stream});
 }
+
+
 
 function hasGetUserMedia() {    
   return !!(navigator.mediaDevices &&  navigator.mediaDevices.getUserMedia);
@@ -53,16 +62,8 @@ To use both the microphone and camera, pass {video: true, audio: true}:
 -->
 <video autoplay></video>
 
-<script>
-const constraints = {
-  video: true
-};
 
-const video = document.querySelector('video');
 
-navigator.mediaDevices.getUserMedia(constraints).
-  then((stream) => {video.srcObject = stream});
-</script>
 
         <button type="submit">submit</button> 
     </form>
