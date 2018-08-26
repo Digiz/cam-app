@@ -6,10 +6,8 @@
 <script>
 function main() {
 alert("in validateMyForm")
-}
 
-$(document).ready(function () {
-    alert("on page load")
+}
 
 function hasGetUserMedia() {
     
@@ -24,13 +22,20 @@ function hasGetUserMedia() {
   return !!(navigator.mediaDevices &&  navigator.mediaDevices.getUserMedia);
 }
 
+$(document).ready(function () {
+    alert("on page load");
+
 if (hasGetUserMedia()) {
   // Good to go!
+  console.log("Good to go!")
 
 } else {
   alert('getUserMedia() is not supported by your browser');
 }
+
 }
+
+
 </script>
 </head>
 <body>
