@@ -15,11 +15,13 @@ function hasGetUserMedia() {
     
     console.log("navigator.mediaDevices " + navigator.mediaDevices);
     console.log("navigator.mediaDevices.getUserMedia " + navigator.mediaDevices.getUserMedia);
-    console.log("navigator.mediaDevices &&  navigator.mediaDevices.getUserMedia " + navigator.mediaDevices &&
-    navigator.mediaDevices.getUserMedia);
+    var test;
+    test =  navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
+    console.log("test" + test)
+    
+    // console.log("navigator.mediaDevices &&  navigator.mediaDevices.getUserMedia " + navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
 
-  return !!(navigator.mediaDevices &&
-    navigator.mediaDevices.getUserMedia);
+  return !!(navigator.mediaDevices &&  navigator.mediaDevices.getUserMedia);
 }
 
 if (hasGetUserMedia()) {
