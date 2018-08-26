@@ -10,30 +10,17 @@ alert("in validateMyForm")
 
 }
 
-function hasGetUserMedia() {
-    
-    console.log("navigator.mediaDevices " + navigator.mediaDevices);
-    console.log("navigator.mediaDevices.getUserMedia " + navigator.mediaDevices.getUserMedia);
-    var test;
-    test =  navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
-    console.log("test" + test)
-    
-    // console.log("navigator.mediaDevices &&  navigator.mediaDevices.getUserMedia " + navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
-
+function hasGetUserMedia() {    
   return !!(navigator.mediaDevices &&  navigator.mediaDevices.getUserMedia);
 }
 
 $(document).ready(function () {
-    alert("on page load");
+   //after page has loaded, i.e wait until all files have downloaded before running these
 
-if (hasGetUserMedia()) {
-  // Good to go!
-  console.log("Good to go!")
-
-} else {
-  alert("getUserMedia is not supported by your browser");
-}
-
+//check that we have access to device media, error if browser does not support
+if (!hasGetUserMedia()) {
+    alert("getUserMedia is not supported by your browser");
+} 
 });
 
 
@@ -52,9 +39,30 @@ if (hasGetUserMedia()) {
         <input type="file" accept="image/*" capture="camera" />
     </div>
 <div>
+    <!-- if user would like to add media file from extra locations -->
     <input type="file" accept="image/*;capture=camera">
 </div>
 
+<!-- 
+    Gaining access to an input device 
+To use the webcam or microphone, we need to request permission. 
+The parameter to getUserMedia() is an object specifying the details and requirements for each type of media 
+you want to access. 
+For example, if you want to access the webcam, the parameter should be {video: true}. 
+To use both the microphone and camera, pass {video: true, audio: true}:
+-->
+<video autoplay></video>
+
+<script>
+const constraints = {
+  video: true
+};
+
+const video = document.querySelector('video');
+
+navigator.mediaDevices.getUserMedia(constraints).
+  then((stream) => {video.srcObject = stream});
+</script>
 
         <button type="submit">submit</button> 
     </form>
