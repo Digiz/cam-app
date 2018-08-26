@@ -3,9 +3,21 @@
 <head>
 
 <title>Cam</title>
+<script>
+function main() {
+alert("in validateMyForm")
+}
+
+</script>
 </head>
 <body>
 
+    <form onsubmit="event.preventDefault(); main();">
+    
+        <input type="file" accept="image/*" capture="camera" />
+
+        <button type="submit">submit</button> 
+    </form>
 
 
 
